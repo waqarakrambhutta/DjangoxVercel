@@ -1,6 +1,17 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+# example/views.py
+from datetime import datetime
 
-# Create your views here.
-def hello_world(request):
-    return HttpResponse("Hello, world. You're at the APis index.")
+from django.http import HttpResponse
+
+
+def index(request):
+    now = datetime.now()
+    html = f'''
+    <html>
+        <body>
+            <h1>Hello from Vercel!</h1>
+            <p>The current time is { now }.</p>
+        </body>
+    </html>
+    '''
+    return HttpResponse(html)
